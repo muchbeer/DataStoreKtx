@@ -7,16 +7,10 @@ import kotlinx.coroutines.launch
 
 class UserPrefViewModel (private val userPref: UserPref) : ViewModel() {
 
-  //  private  var _username_edtText = MutableLiveData<String>()
     val usernameEdt = MutableLiveData<String>()
-  //      get() = _username_edtText
 
-  //  private  var _age_edtText = MutableLiveData<Int>()
     val ageEdt = MutableLiveData<String>()
-     //   get() = _age_edtText
 
-
-  //  private var _user_checkGender = MutableLiveData<Boolean>()
     val user_checkGender =MutableLiveData<Boolean>()
       //      get() = _user_checkGender
  init {
@@ -35,10 +29,6 @@ class UserPrefViewModel (private val userPref: UserPref) : ViewModel() {
 fun saveUserData() = viewModelScope.launch {
     userPref.storeData(usernameEdt.value.toString(), ageEdt.value!!.toInt(), user_checkGender.value!!)
 }
-
-   // val read_username = userPref.read_username
- //   val read_userAge = userPref.read_user_age
-   // val read_gender = userPref.read_user_gender
 
     val read_username_VM = userPref.read_username.asLiveData(
         Dispatchers.Default + viewModelScope.coroutineContext

@@ -2,12 +2,8 @@ package raum.muchbeer.datastorektx
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.CompoundButton
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.asLiveData
-import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
 import raum.muchbeer.datastorektx.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
