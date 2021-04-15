@@ -1,6 +1,7 @@
 package raum.muchbeer.datastorektx
 
 import androidx.lifecycle.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
@@ -14,13 +15,15 @@ class UserPrefViewModel (private val userPref: UserPref) : ViewModel() {
     val ageEdt = MutableLiveData<String>()
      //   get() = _age_edtText
 
-    val ageInString = Transformations.map(ageEdt) { ageInt->
-        ageInt.toString()
-    }
+
   //  private var _user_checkGender = MutableLiveData<Boolean>()
     val user_checkGender =MutableLiveData<Boolean>()
       //      get() = _user_checkGender
-
+ init {
+     usernameEdt.value=""
+          ageEdt.value="0"
+          user_checkGender.value=true
+ }
 
     fun checkGender(isFemale: Boolean) {
         if (isFemale) {
@@ -33,10 +36,28 @@ fun saveUserData() = viewModelScope.launch {
     userPref.storeData(usernameEdt.value.toString(), ageEdt.value!!.toInt(), user_checkGender.value!!)
 }
 
-    val read_username = userPref.read_username
-    val read_userAge = userPref.read_user_age
-    val read_gender = userPref.read_user_gender
+   // val read_username = userPref.read_username
+ //   val read_userAge = userPref.read_user_age
+   // val read_gender = userPref.read_user_gender
 
+    val read_username_VM = userPref.read_username.asLiveData(
+        Dispatchers.Default + viewModelScope.coroutineContext
+    )
+
+    val read_userAgeVM = userPref.read_user_age.asLiveData(
+        Dispatchers.Default + viewModelScope.coroutineContext
+    )
+
+    val read_gender = userPref.read_user_gender.asLiveData(
+        Dispatchers.Default + viewModelScope.coroutineContext
+    )
+    val read_username_VMString = Transformations.map(read_userAgeVM) { ageInt->
+        ageInt.toString()
+    }
+
+    val read_userGenderConvert  = Transformations.map(read_gender) { isFemale ->
+        if (isFemale) "Female" else "Male"
+    }
 
 }
 

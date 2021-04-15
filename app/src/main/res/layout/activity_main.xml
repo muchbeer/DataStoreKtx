@@ -23,7 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Name"
+        android:hint="Name"
+        android:text="@{viewModelLayout.read_username_VM}"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
@@ -32,7 +33,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Age"
+        android:hint="Age"
+        android:text="@{viewModelLayout.read_username_VMString}"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
@@ -41,7 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Gender"
+        android:hint="Gender"
+        android:text="@{viewModelLayout.read_userGenderConvert}"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
@@ -72,6 +75,7 @@
         android:text="Female/Male"
         android:onClick="@{(view) -> viewModelLayout.checkGender(((CompoundButton)view).isChecked())}"
         android:textSize="20sp"
+        android:checked="true"
        />
 
     <Button

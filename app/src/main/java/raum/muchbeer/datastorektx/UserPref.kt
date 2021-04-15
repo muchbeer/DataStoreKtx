@@ -57,6 +57,6 @@ class UserPref (private val context: Context) {
 
     val read_user_gender : Flow<Boolean> = context.dataStore.data
         .map {
-            it[PREF_KEY_GENDER] ?: false
+            it[PREF_KEY_GENDER] ?: true
         }
 }
