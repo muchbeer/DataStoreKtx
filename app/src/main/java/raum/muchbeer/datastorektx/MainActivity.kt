@@ -17,10 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var userPref: UserPref
     private lateinit var binding: ActivityMainBinding
 
- //  private val viewModelPref :  UserPrefViewModel by viewModels()
-    var userName = ""
-    var userAge = 0
-    var userGender = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
