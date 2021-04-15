@@ -21,6 +21,7 @@ class UserPrefViewModel (private val userPref: UserPref) : ViewModel() {
     val user_checkGender =MutableLiveData<Boolean>()
       //      get() = _user_checkGender
 
+
     fun checkGender(isFemale: Boolean) {
         if (isFemale) {
             user_checkGender.value = true

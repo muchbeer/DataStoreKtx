@@ -1,22 +1,16 @@
 package raum.muchbeer.datastorektx
 
+import android.widget.CompoundButton
+import androidx.databinding.BindingAdapter
 
-/*
-@BindingAdapter("binding")
-fun bindSwitch(button: CompoundButton, bindableBoolean: Boolean) {
-    button.setOnCheckedChangeListener(object : OnCheckedChangeListener() {
-        fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-            bindableBoolean.set(isChecked)
+
+@BindingAdapter("gender")
+fun bindSwitch(button: CompoundButton, checkGender: Boolean) {
+    button.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener {
+        override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+          if (isChecked) checkGender else !checkGender
         }
+
     })
 
-    button.setOnCheckedChangeListener { button, isChecked ->
-        if (isChecked) {
-            button.text = "come"
-        }
-    }
-    val isChecked: Boolean = bindableBoolean.get()
-    if (button.isChecked != isChecked) {
-        button.isChecked = isChecked
-    }
-}*/
+}

@@ -33,12 +33,12 @@ class MainActivity : AppCompatActivity() {
    binding.viewModelLayout = viewModel
         binding.lifecycleOwner= this
 
-        binding.switchGender.setOnCheckedChangeListener(object: CompoundButton.OnCheckedChangeListener {
+     /*   binding.switchGender.setOnCheckedChangeListener(object: CompoundButton.OnCheckedChangeListener {
             override fun onCheckedChanged(p0: CompoundButton?, isChecked: Boolean) {
                viewModel.checkGender(isChecked)
             }
 
-        })
+        })*/
         observeUser()
     }
 
