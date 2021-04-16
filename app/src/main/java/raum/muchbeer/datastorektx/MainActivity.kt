@@ -17,7 +17,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+      //  binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         userPref = UserPref(this)
         viewModelFactory = UserPrefViewModelFactory(userPref)
         viewModel = ViewModelProvider(this, viewModelFactory).get(UserPrefViewModel::class.java)
