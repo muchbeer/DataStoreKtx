@@ -29,4 +29,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    private fun randomMessage() {
+        val listOfMessage = listOf("Gadiel my boy", "Gianna my babe girl", "My Love", "Jacob", "Dada")
+
+        val index = (0..4).random()
+        val newMessage = listOfMessage[index]
+    }
 }
